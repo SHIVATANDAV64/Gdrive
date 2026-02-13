@@ -1,0 +1,13 @@
+{
+    "name": "g-drive-cleanup-trash",
+    "version": "1.0.0",
+    "description": "Scheduled function to auto-purge expired trash items",
+    "type": "module",
+    "main": "src/main.js",
+    "dependencies": {
+        "node-appwrite": "^14.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

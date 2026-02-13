@@ -1,0 +1,13 @@
+{
+  "name": "manage-tags",
+  "version": "1.0.0",
+  "description": "Manage tags/labels for files and folders",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "node-appwrite": "^13.0.0"
+  }
+}

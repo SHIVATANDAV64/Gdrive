@@ -1,0 +1,13 @@
+{
+    "name": "g-drive-folder-crud",
+    "version": "1.0.0",
+    "description": "Appwrite Function for folder CRUD operations",
+    "type": "module",
+    "main": "src/main.js",
+    "dependencies": {
+        "node-appwrite": "^14.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

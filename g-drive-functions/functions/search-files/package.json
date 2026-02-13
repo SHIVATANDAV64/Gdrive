@@ -1,0 +1,13 @@
+{
+    "name": "g-drive-search-files",
+    "version": "1.0.0",
+    "description": "Appwrite Function for searching files and folders",
+    "type": "module",
+    "main": "src/main.js",
+    "dependencies": {
+        "node-appwrite": "^14.0.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

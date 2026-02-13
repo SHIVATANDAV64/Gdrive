@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@theme {
+  /* Colors - Professional Palette */
+  --color-primary: #2563EB;
+  --color-primary-foreground: #FFFFFF;
+  --color-primary-hover: #1D4ED8;
+
+  --color-secondary: #64748B;
+  --color-secondary-foreground: #FFFFFF;
+
+  --color-accent: #0EA5E9;
+  --color-accent-foreground: #FFFFFF;
+  --color-accent-alt: #0284C7;
+
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Surfaces */
+  --color-background: #F8FAFC;
+  /* Slate-50 */
+  --color-background-alt: #F1F5F9;
+  /* Slate-100 */
+
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-muted: #F8FAFC;
+  --color-surface-hover: #F1F5F9;
+
+  /* Borders */
+  --color-border: #E2E8F0;
+  /* Slate-200 */
+  --color-border-subtle: #F1F5F9;
+  /* Slate-100 */
+  --color-border-focus: #3B82F6;
+
+  /* Text */
+  --color-text: #0F172A;
+  /* Slate-900 */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #64748B;
+  /* Slate-500 */
+  --color-text-muted: #94A3B8;
+  /* Slate-400 */
+
+  /* Radius - Professional Sharpness */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  /* 6px */
+  --radius-lg: 0.5rem;
+  /* 8px */
+  --radius-xl: 0.75rem;
+  /* 12px */
+  --radius-2xl: 1rem;
+  /* 16px */
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Shadows - Mapping legacy shadow-sm to shadow-xs if needed, but keeping standard */
+  --shadow-xs: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(15 23 42 / 0.1), 0 1px 2px -1px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 4px 6px -1px rgb(15 23 42 / 0.1), 0 2px 4px -2px rgb(15 23 42 / 0.06);
+  --shadow-lg: 0 10px 15px -3px rgb(15 23 42 / 0.1), 0 4px 6px -4px rgb(15 23 42 / 0.05);
+  --shadow-xl: 0 20px 25px -5px rgb(15 23 42 / 0.1), 0 8px 10px -6px rgb(15 23 42 / 0.04);
+
+  --shadow-glow: 0 0 20px rgb(37 99 235 / 0.15);
+
+  /* Animation */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0
+    }
+
+    to {
+      height: var(--radix-accordion-content-height)
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height)
+    }
+
+    to {
+      height: 0
+    }
+  }
+}
+
+/* 
+  Correct v4 Reset for Border Colors 
+  v4 defaults borders to currentColor. We force it to our border color.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+}
+
+/* Dark Mode - Overrides */
+/* v4 Dark mode uses native media query or .dark class if configured. 
+   Start with .dark selector for manual toggle support */
+@variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-background: #0F172A;
+  --color-background-alt: #1E293B;
+
+  --color-surface: #1E293B;
+  --color-surface-elevated: #334155;
+  --color-surface-muted: #0F172A;
+  --color-surface-hover: #334155;
+
+  --color-border: #334155;
+  --color-border-subtle: #1E293B;
+
+  --color-text: #F8FAFC;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #64748B;
+}
+
+/* Global Styles */
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+/* Utility Utilities */
+.card {
+  @apply bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg shadow-sm p-5;
+}
